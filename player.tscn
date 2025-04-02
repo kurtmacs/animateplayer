@@ -1,0 +1,131 @@
+[gd_scene load_steps=22 format=3 uid="uid://bgmu115g3t6nx"]
+
+[ext_resource type="Texture2D" uid="uid://bnotrkjtknk62" path="res://GODOT/Stand1.png" id="1_ivps1"]
+[ext_resource type="Script" uid="uid://gy3gbsj17yrs" path="res://player.gd" id="1_urp6f"]
+[ext_resource type="Texture2D" uid="uid://b1jg5k7bq4i3e" path="res://GODOT/jump1.png" id="2_pylmc"]
+[ext_resource type="Texture2D" uid="uid://bm16b5r6by7ib" path="res://GODOT/Stand2.png" id="2_urp6f"]
+[ext_resource type="Texture2D" uid="uid://chsug4w2aotmb" path="res://GODOT/Stand3.png" id="3_bwjto"]
+[ext_resource type="Texture2D" uid="uid://dayhwij4pqc5g" path="res://GODOT/jump2.png" id="3_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://baku4kukvsomh" path="res://GODOT/jump3.png" id="4_5tmop"]
+[ext_resource type="Texture2D" uid="uid://dcehpmwdgk4bp" path="res://GODOT/Stand4.png" id="4_606se"]
+[ext_resource type="Texture2D" uid="uid://6go3jg32v8r5" path="res://GODOT/jump4.png" id="5_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://depxbyuhwppm5" path="res://GODOT/Stand5.png" id="5_u1c27"]
+[ext_resource type="Texture2D" uid="uid://b6eoaaivaxjr4" path="res://GODOT/jump4.svg" id="6_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://cjjrneijp0k3g" path="res://GODOT/Stand6.png" id="6_op7ga"]
+[ext_resource type="Texture2D" uid="uid://dmj3yx1pcmjr4" path="res://GODOT/jump5.png" id="7_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://nbvh84yfihkn" path="res://GODOT/Stand7.png" id="7_q13i1"]
+[ext_resource type="Texture2D" uid="uid://b3n3udic3q02y" path="res://GODOT/Stand8.png" id="8_pylmc"]
+[ext_resource type="Texture2D" uid="uid://cjy6xfvwdye7x" path="res://GODOT/skate1.png" id="9_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://xybnecgoel8r" path="res://GODOT/skate2.png" id="10_5tmop"]
+[ext_resource type="Texture2D" uid="uid://dypkgvcbq2gay" path="res://GODOT/skate3.png" id="11_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://3ism86boleth" path="res://GODOT/skate4.png" id="12_7lmhl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dx0e4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dx0e4")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q13i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q13i1")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7lmhl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm5j8"]
+size = Vector2(347, 428)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_urp6f")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(404.5, 271.243)
+scale = Vector2(0.492109, 0.492109)
+sprite_frames = SubResource("SpriteFrames_dx0e4")
+animation = &"jump"
+autoplay = "stand"
+frame_progress = 0.0896031
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(402.5, 275)
+shape = SubResource("RectangleShape2D_jm5j8")
